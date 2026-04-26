@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微信刮刮乐红包原型</title>
+    <link rel="stylesheet" href="styles.css?v=10" />
+  </head>
+  <body>
+    <main class="stage" aria-label="微信刮刮乐红包交互原型">
+      <section class="phone" aria-label="手机画布">
+        <div class="status-bar">
+          <span class="status-time">9:41</span>
+          <span class="status-icons" aria-hidden="true">
+            <span class="signal"><i></i><i></i><i></i></span>
+            <span class="wifi"></span>
+            <span class="battery"></span>
+          </span>
+        </div>
+
+        <div class="chat-layer" id="chatLayer">
+          <header class="nav-bar">
+            <button class="nav-btn back-btn" aria-label="返回"></button>
+            <button class="nav-btn more-btn" aria-label="更多"></button>
+          </header>
+
+          <div class="chat-scroll" aria-label="聊天记录">
+            <p class="time-divider">上午 9:41</p>
+
+            <article class="message left">
+              <div class="avatar avatar-friend" aria-hidden="true"></div>
+              <div class="bubble text-bubble">宝贝 22 岁生日快乐</div>
+            </article>
+
+            <article class="message left red-message">
+              <div class="avatar avatar-friend" aria-hidden="true"></div>
+              <button class="red-packet-mini" id="openPacket" type="button" aria-label="打开刮刮乐微信红包">
+                <span class="packet-icon">
+                  <span class="coin">¥</span>
+                </span>
+                <span class="packet-copy">
+                  <strong>刮开看祝福</strong>
+                  <span>刮刮乐</span>
+                </span>
+                <small>微信红包</small>
+              </button>
+            </article>
+
+            <article class="message right">
+              <div class="bubble reply-bubble">谢谢宝贝</div>
+              <div class="avatar avatar-me" aria-hidden="true"></div>
+            </article>
+
+            <div class="faint-hint" aria-hidden="true"></div>
+          </div>
+
+          <footer class="input-bar" aria-hidden="true">
+            <span class="voice-icon"></span>
+            <span class="input-field"></span>
+            <span class="emoji-icon"></span>
+            <span class="plus-icon"></span>
+          </footer>
+        </div>
+
+        <section class="packet-overlay" id="packetOverlay" aria-hidden="true">
+          <div class="dim-chat" aria-hidden="true"></div>
+          <article class="packet-modal" role="dialog" aria-modal="true" aria-label="一个朋友的红包">
+            <div class="sender-line">
+              <span class="sender-avatar avatar-friend"></span>
+              <span>一个朋友 的红包</span>
+            </div>
+
+            <div class="scratch-wrap">
+              <div class="scratch-prize" aria-hidden="true">
+                <div class="prize-stroke"></div>
+                <p>生日快乐</p>
+                <div class="amount-line">
+                  <strong>100.00</strong>
+                  <span>元</span>
+                </div>
+                <div class="celebration" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <canvas id="scratchCanvas" width="198" height="168" aria-label="刮开区域"></canvas>
+            </div>
+            <span class="completion-badge">已刮开</span>
+
+            <p class="scratch-tip">请在刮刮乐区域滑动刮开红包</p>
+            <div class="packet-fold" aria-hidden="true"></div>
+            <button class="open-seal" id="sealButton" type="button" aria-label="点击打开或刮开红包">開</button>
+          </article>
+
+          <button class="close-overlay" id="closeOverlay" type="button" aria-label="关闭红包"></button>
+        </section>
+
+        <section class="result-page" id="resultPage" aria-hidden="true">
+          <div class="result-top" aria-hidden="true"></div>
+          <header class="result-nav">
+            <button class="result-back" id="resultBack" type="button" aria-label="返回聊天"></button>
+            <button class="result-more" type="button" aria-label="更多"></button>
+          </header>
+
+          <div class="result-content">
+            <div class="result-title-row">
+              <span class="result-avatar avatar-friend" aria-hidden="true"></span>
+              <h1>好友的红包</h1>
+            </div>
+            <p class="result-wish">生日快乐</p>
+            <div class="result-amount">
+              <strong>100.00</strong>
+              <span>元</span>
+            </div>
+            <p class="result-note">已存入零钱，可直接消费 〉</p>
+
+            <button class="reply-sticker" type="button">
+              <span class="sticker-preview" aria-hidden="true"></span>
+              <span>用此表情回复</span>
+            </button>
+          </div>
+        </section>
+
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <script src="app.js?v=9"></script>
+  </body>
+</html>
